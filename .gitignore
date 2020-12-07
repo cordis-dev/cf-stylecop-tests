@@ -1,0 +1,13 @@
+*.user
+*.suo
+*.log
+bin
+obj
+_ReSharper.*
+_NCrunch_*
+*.ncrunchproject
+*.ncrunchsolution
+*.cache
+packages
+.vs
+.nuget
