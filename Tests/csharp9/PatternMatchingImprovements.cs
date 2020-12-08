@@ -9,13 +9,5 @@ namespace Tests.csharp9
 
         public static bool IsLetterOrSeparator(this char c) =>
             c is (>= 'a' and <= 'z') or (>= 'A' and <= 'Z') or '.' or ',';
-
-        public static void Test(Exception e)
-        {
-            if (e is not null)
-            {
-                // ...
-            }
-        }
     }
 }
