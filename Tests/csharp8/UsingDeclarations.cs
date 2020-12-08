@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Tests
 {
@@ -6,6 +8,12 @@ namespace Tests
     {
         static int WriteLinesToFile(IEnumerable<string> lines)
         {
+            // classic
+            using (var streamReader = new StreamReader("ReadToEnd.txt"))
+            {
+                Console.Write(streamReader.ReadToEnd());
+            };
+
             using var file = new System.IO.StreamWriter("WriteLines2.txt");
             int skippedLines = 0;
             foreach (string line in lines)
