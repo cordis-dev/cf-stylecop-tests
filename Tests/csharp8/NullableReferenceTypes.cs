@@ -18,6 +18,12 @@ namespace Tests
             {
                 // ...
             }
+			
+			// indexer nullability
+			var strings = new string[] {"A"};
+            var z= strings[0]!;
+			
+			Type?[]? targetTypes = null;
         }
     }
 }

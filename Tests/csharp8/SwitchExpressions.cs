@@ -13,8 +13,35 @@ namespace Tests
         Violet
     }
 
+    public enum Directions
+    {
+        Up,
+        Down,
+        Right,
+        Left
+    }
+
+    public enum Orientation
+    {
+        North,
+        South,
+        East,
+        West
+    }
+
     public class SETests
     {
+		public void T()
+		{
+            var direction = Directions.Right;
+            var orientation = direction switch
+			{
+				Directions.Up    => Orientation.North,
+				Directions.Right => Orientation.East,
+				Directions.Down  => Orientation.South,
+				Directions.Left  => Orientation.West,
+			};
+		}
 
         public static RGBColor FromRainbow(Rainbow colorBand) =>
             colorBand switch

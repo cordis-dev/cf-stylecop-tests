@@ -22,6 +22,8 @@ namespace Tests.csharp9
 
     public class RecordTypes
     {
+		public override void WriteProgress(long sourceId, ProgressRecord record) { }
+				
         public void Test()
         {
             var person = new Person("Bill", "Wagner");
@@ -32,7 +34,19 @@ namespace Tests.csharp9
 
             // with expression 
             Person brother = person with { FirstName = "Paul" };
+			
+			// record as variable name
+			ProgressRecord record = new(
+                this.ActivityID,
+                this.Activity,
+                this.StatusDescription);
+				
+			record.Activity = this.Activity;
+			
+			foreach (ErrorRecord record in powerShell.Streams.Error.ReadAll())
+            {
+                this.WriteError(record);
+            }
         }
     }
-
 }
