@@ -24,6 +24,12 @@ namespace Tests
             var z= strings[0]!;
 			
 			Type?[]? targetTypes = null;
+			
+			if (pi.ParameterType.GetElementType()!.IsEnum)
+			{
+			}
+			
+			cpc.FindConnectionPoint(out cp!);
         }
     }
 }

@@ -33,6 +33,15 @@ namespace Tests
     {
 		public void T()
 		{
+			switch (attr)
+			{
+				case ExperimentalAttribute _:
+				case ParameterAttribute param when param.ToHide:
+					break;
+				default:
+					break;
+			}
+			
             var direction = Directions.Right;
             var orientation = direction switch
 			{

@@ -5,6 +5,8 @@ namespace Tests.csharp7
 {
 	public class Test
 	{
+	    private static readonly Predicate<string> pr = _ => true;
+		
 		public void T()
 		{
 			_ = UpdatesNotification.CheckForUpdates();

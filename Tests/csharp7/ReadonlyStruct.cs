@@ -2,6 +2,8 @@ namespace Tests.csharp7
 {
 	public readonly struct Person
 	{
+		private protected readonly object syncObj;
+		
 		public string Name { get; }
 
 		public string Surname { get; }
