@@ -30,6 +30,11 @@ namespace Tests
 			}
 			
 			cpc.FindConnectionPoint(out cp!);
+			
+			var errorMessage = new
+            {
+				a?.b
+            };
         }
     }
 }
