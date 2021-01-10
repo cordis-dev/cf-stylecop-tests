@@ -9,7 +9,7 @@ namespace Tests
 
         public static void Test(Exception e, object obj)
         {
-            if (obj is string { Length: 5 } objValue)
+            if (obj is string { Length: 5, Name: "A" } objValue)
             {
                 Console.WriteLine(objValue);
             }
