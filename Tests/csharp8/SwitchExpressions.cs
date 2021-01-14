@@ -62,7 +62,7 @@ namespace Tests
             colorBand switch
             {
                 Rainbow.Red => new RGBColor(0xFF, 0x00, 0x00),
-                Rainbow.Orange or Rainbow.Blue => new RGBColor(0xFF, 0x7F, 0x00),
+                Rainbow.Orange or Rainbow.Blue or Rainbow.AA => new RGBColor(0xFF, 0x7F, 0x00),
                 Rainbow.Violet => new RGBColor(0x94, 0x00, 0xD3),
                 _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(colorBand)),
             };
