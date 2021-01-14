@@ -15,6 +15,11 @@ namespace Tests
             };
 
             using var file = new System.IO.StreamWriter("WriteLines2.txt");
+			
+			
+			// with await
+			await using SilkDbContext db = GetContext();
+			
             int skippedLines = 0;
             foreach (string line in lines)
             {
