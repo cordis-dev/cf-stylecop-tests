@@ -56,6 +56,12 @@ namespace Tests
                 _ when isBot => "I wish I could kick myself, but I sadly cannot.",
                 _ => "Something has gone really wrong, and I don't know what *:(*"
             };
+			
+			(ConsoleColor foreground, ConsoleColor background) = style switch
+            {
+                ConsoleThemeStyle.LevelVerbose => ConsoleColor.Magenta, 
+                _ => ConsoleColor.Gray
+            };
 		}
 
         public static RGBColor FromRainbow(Rainbow colorBand) =>
