@@ -30,6 +30,7 @@ namespace Tests
 
             Range phrase = 1..4;
             var text = words[phrase];
+			var quickBrownFox2 = words[i..^j.Length];
         }
     }
 }
