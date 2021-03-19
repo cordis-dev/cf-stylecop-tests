@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Tests
 {
@@ -31,7 +32,21 @@ namespace Tests
 
     public class SETests
     {
-		public void T()
+        private static string SwitchInsideGet
+        {
+            get
+            {
+                var z = SI.CurrentPlatform switch
+                {
+                    PP.MacOS => "AA",
+                    _ => null
+                };
+
+                return "BB";
+            }
+        }
+
+        public void T()
 		{
 			switch (attr)
 			{
