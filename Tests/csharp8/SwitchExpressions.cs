@@ -32,6 +32,13 @@ namespace Tests
 
     public class SETests
     {
+        private IVirtualMouse pointer => Info.Driver.OutputMode switch
+        {
+            IPointerOutputMode<IRelativePointer> outputMode => outputMode.Pointer as IVirtualMouse,
+            IPointerOutputMode<IAbsolutePointer> outputMode => outputMode.Pointer as IVirtualMouse,
+            _ => null
+        };
+
         private static string SwitchInsideGet
         {
             get
