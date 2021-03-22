@@ -94,6 +94,50 @@ namespace Tests
                 Rainbow.Violet => new RGBColor(0x94, 0x00, 0xD3),
                 _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(colorBand)),
             };
+
+        private static string ToDllName(string dllName)
+        {
+            return SystemInterop.CurrentPlatform switch
+            {
+                PluginPlatform.Windows => $"{dllName}.dll",
+                PluginPlatform.Linux => $"lib{dllName}.so",
+                PluginPlatform.MacOS => $"lib{dllName}.dylib",
+                _ => null
+            };
+        }
+
+        public readonly static bool EnableTrayIcon = SystemInterop.CurrentPlatform switch
+        {
+            PluginPlatform.Windows => true,
+            PluginPlatform.MacOS => true,
+            _ => false
+        };
+
+        public static void T()
+        {
+            messageList.KeyDown += (sender, e) =>
+            {
+                switch (e.Modifiers, e.Key)
+                {
+                    case (Keys.Control, Keys.C):
+                    {
+                        copyCommand.Execute();
+                        break;
+                    }
+                }
+            };
+        }
+
+        public virtual IDeviceReport Parse(byte[] data)
+        {
+            return data[0] switch
+            {
+                0x2 => new IntuosV2TabletReport(data),
+                0x10 => new IntuosV2TabletReport(data),
+                0x3 => new IntuosV2AuxReport(data),
+                _ => new DeviceReport(data)
+            };
+        }
     }
 
     public class RGBColor
