@@ -138,6 +138,13 @@ namespace Tests
                 _ => new DeviceReport(data)
             };
         }
+
+        private static Lazy<IAbsolutePointer> _absolutePointer = new Lazy<IAbsolutePointer>(() => CurrentPlatform switch
+        {
+            PluginPlatform.Windows => new WindowsAbsolutePointer(),
+            PluginPlatform.MacOS => new MacOSAbsolutePointer(),
+            _ => null
+        });
     }
 
     public class RGBColor
